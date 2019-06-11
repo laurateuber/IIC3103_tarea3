@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<h2> About Episode {{data.episodeID}} : {{data.title}}</h2>
+
+<table>
+    <tr>
+      <th>Title:</th>
+      <td>{{data.title}}</td>
+    </tr>
+    <tr>
+      <th>Episode number:</th>
+      <td>{{data.episodeID}}</td>
+    </tr>
+    <tr>
+      <th>Release date:</th>
+      <td>{{data.releaseDate}}</td>
+    </tr>
+    <tr>
+      <th>Director:</th>
+      <td>{{data.director}}</td>
+    </tr>
+    <tr>
+      <th>Producer(s):</th>
+      <td>{{data.producers}}</td>
+    </tr>
+    <tr>
+      <th>Opening crawl:</th>
+      <td>{{data.openingCrawl}}</td>
+    </tr>
+    <tr>
+      <th>Characters:</th>
+      <td>
+
+      <ul>
+      {% for character in data.characters%}
+      <li><a href="{% url 'people' character.id %}"> {{character.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Planets:</th>
+      <td>
+      <ul>
+      {% for planet in data.planets%}
+      <li><a href="{% url 'planet' planet.id %}"> {{planet.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Starships:</th>
+      <td>
+      <ul>
+      {% for starship in data.starships%}
+      <li><a href="{% url 'starship' starship.id %}"> {{starship.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+</table>
+{% endblock content %}

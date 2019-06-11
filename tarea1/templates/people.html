@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<h2> About Character {{data.name}}: </h2>
+
+<table>
+    <tr>
+      <th>Name:</th>
+      <td>{{data.name}}</td>
+    </tr>
+    <tr>
+      <th>Height:</th>
+      <td>{{data.height}}</td>
+    </tr>
+    <tr>
+      <th>Mass:</th>
+      <td>{{data.mass}}</td>
+    </tr>
+    <tr>
+      <th>Hair color:</th>
+      <td>{{data.hairColor}}</td>
+    </tr>
+    <tr>
+      <th>Skin color:</th>
+      <td>{{data.skinColor}}</td>
+    </tr>
+    <tr>
+      <th>Eye color:</th>
+      <td>{{data.eyeColor}}</td>
+    </tr>
+    <tr>
+      <th>Birth year:</th>
+      <td>{{data.birthYear}}</td>
+    </tr>
+    <tr>
+      <th>Gender:</th>
+      <td>{{data.gender}}</td>
+    </tr>
+    <tr>
+      <th>Homeworld:</th>
+      <td><a href="{% url 'planet' data.homeworld.id %}"> {{data.homeworld.name}}</a></td>
+    </tr>
+    <tr>
+      <th>Films:</th>
+      <td>
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Starships:</th>
+      <td>
+      <ul>
+      {% for starship in data.starships%}
+      <li><a href="{% url 'starship' starship.id %}"> {{starship.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+</table>
+{% endblock content %}

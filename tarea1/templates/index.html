@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>StarWars Films</h2>
+
+<table>
+  <tr>
+    <th>Episode number</th>
+    <th>Title</th>
+    <th>Release date</th>
+    <th>Director</th>
+    <th>Producer(s)</th>
+  </tr>
+  {% for movie in data%}
+    <tr>
+      <td>{{movie.episodeID}}</td>
+      <td><a href="{% url 'movie' movie.id %}"> {{movie.title}}</a></td>
+      <td>{{movie.releaseDate}}</td>
+      <td>{{movie.director}}</td>
+      <td>{{movie.producers}}</td>
+    </tr>
+  {% endfor %}
+
+</table>
+
+{% endblock content %}

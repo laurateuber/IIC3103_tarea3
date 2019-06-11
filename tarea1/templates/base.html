@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+      <style>
+
+        ul#menu li { display:inline;
+        }
+      </style>
+        <title>Starwars</title>
+        <h1>StarWars Website (Tarea 3)</h1>
+
+    </head>
+
+    <body>
+    {% block content %}{% endblock content %}
+    </body>
+
+    <ul id="menu">
+      <li><a href="{% url 'index' %}">  Menu</a></li>
+      <li><a href="{{request.META.HTTP_REFERER}}">   Back</a></li>
+    </ul>
+
+</html>

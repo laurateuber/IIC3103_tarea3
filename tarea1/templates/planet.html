@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<h2> About Planet {{data.name}}: </h2>
+<table>
+    <tr>
+      <th>Name:</th>
+      <td>{{data.name}}</td>
+    </tr>
+    <tr>
+      <th>Rotation period:</th>
+      <td>{{data.rotationPeriod}}</td>
+    </tr>
+    <tr>
+      <th>Orbital period:</th>
+      <td>{{data.orbitalPeriod}}</td>
+    </tr>
+    <tr>
+      <th>Diameter:</th>
+      <td>{{data.diameter}}</td>
+    </tr>
+    <tr>
+      <th>Climates:</th>
+      <td>{{data.climates}}</td>
+    </tr>
+    <tr>
+      <th>Gravity:</th>
+      <td>{{data.gravity}}</td>
+    </tr>
+    <tr>
+      <th>Terrains:</th>
+      <td>{{data.terrains}}</td>
+    </tr>
+    <tr>
+      <th>Surface water:</th>
+      <td>{{data.surfaceWater}}</td>
+    </tr>
+    <tr>
+      <th>Population:</th>
+      <td>{{data.population}}</td>
+    </tr>
+    <tr>
+      <th>Residents:</th>
+      <td>
+      <ul>
+      {% for resident in data.residents%}
+      <li><a href="{% url 'people' resident.id %}"> {{resident.name}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Films:</th>
+      <td>
+      <ul>
+      {% for film in data.films%}
+      <li><a href="{% url 'movie' film.id %}"> {{film.title}}</a></li>
+      {% endfor %}
+      </ul>
+      </td>
+    </tr>
+
+</table>
+{% endblock content %}
